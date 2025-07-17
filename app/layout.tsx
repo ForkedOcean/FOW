@@ -73,7 +73,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#06141B" />
-        <link rel="icon" href="/Logo.PNG" />
+        <link rel="icon" href="/NB_logo_ico.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
