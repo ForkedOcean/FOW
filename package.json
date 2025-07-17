@@ -53,6 +53,7 @@
     "@next/eslint-plugin-next": "^15.0.0",
     "@typescript-eslint/eslint-plugin": "8.37.0",
     "@typescript-eslint/parser": "8.37.0",
+    "cssnano": "^6.0.0",
     "autoprefixer": "10.4.15",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

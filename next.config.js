@@ -2,7 +2,7 @@
 const nextConfig = {
   //output: 'export',
   trailingSlash: true,
-  images: { 
+  images: {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -17,7 +17,7 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  
+
   // Security Headers
   async headers() {
     return [
@@ -55,9 +55,12 @@ const nextConfig = {
 
   // Performance optimizations
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true, // Removed - causing build errors with missing 'critters' module
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
+
+  // Built-in CSS optimization alternative
+  swcMinify: true,
 
   // Bundle analyzer (development only)
   ...(process.env.ANALYZE === 'true' && {
@@ -65,10 +68,10 @@ const nextConfig = {
       if (process.env.NODE_ENV === 'development') {
         const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
         config.plugins.push(
-          new BundleAnalyzerPlugin({
-            analyzerMode: 'server',
-            openAnalyzer: true,
-          })
+            new BundleAnalyzerPlugin({
+              analyzerMode: 'server',
+              openAnalyzer: true,
+            })
         )
       }
       return config
