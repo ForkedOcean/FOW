@@ -1,0 +1,403 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Colors (complementary palette) */
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    --primary: 15 23 42;
+    --primary-foreground: 248 250 252;
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+    --muted: 248 250 252;
+    --muted-foreground: 100 116 139;
+    --accent: 241 245 249;
+    --accent-foreground: 15 23 42;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 15 23 42;
+    --radius: 1rem;
+
+    /* Custom Dark Theme Colors */
+    --color-bg-primary: 6 20 27;        /* #06141B */
+    --color-bg-secondary: 17 33 45;     /* #11212D */
+    --color-bg-card: 37 55 69;          /* #253745 */
+    --color-accent: 74 92 106;          /* #4A5C6A */
+    --color-text-muted: 155 168 171;    /* #9BA8AB */
+    --color-text-primary: 204 208 207;  /* #CCD0CF */
+  }
+
+  .dark {
+    /* Dark Mode Colors - Using Custom Palette */
+    --background: var(--color-bg-primary);
+    --foreground: var(--color-text-primary);
+    --card: var(--color-bg-card);
+    --card-foreground: var(--color-text-primary);
+    --popover: var(--color-bg-card);
+    --popover-foreground: var(--color-text-primary);
+    --primary: var(--color-text-primary);
+    --primary-foreground: var(--color-bg-primary);
+    --secondary: var(--color-bg-secondary);
+    --secondary-foreground: var(--color-text-primary);
+    --muted: var(--color-bg-secondary);
+    --muted-foreground: var(--color-text-muted);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-text-primary);
+    --destructive: 220 38 38;
+    --destructive-foreground: var(--color-text-primary);
+    --border: var(--color-accent);
+    --input: var(--color-accent);
+    --ring: var(--color-accent);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+  
+  body {
+    @apply bg-ocean-primary text-ocean-text-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Ocean Dark Theme Glass Morphism System */
+.glass-card {
+  background: rgba(37, 55, 69, 0.8);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(74, 92, 106, 0.3);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(204, 208, 207, 0.05) inset;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(37, 55, 69, 0.9);
+  border-color: rgba(74, 92, 106, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(204, 208, 207, 0.08) inset;
+  transform: translateY(-1px);
+}
+
+/* Ocean Liquid Button System */
+.liquid-button {
+  background: linear-gradient(135deg, 
+    rgba(37, 55, 69, 0.9) 0%, 
+    rgba(74, 92, 106, 0.8) 50%, 
+    rgba(37, 55, 69, 0.9) 100%);
+  backdrop-filter: blur(16px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 2px 16px rgba(74, 92, 106, 0.3),
+    0 1px 0 rgba(204, 208, 207, 0.1) inset;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(74, 92, 106, 0.4);
+  color: rgb(204, 208, 207);
+}
+
+.liquid-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(204, 208, 207, 0.1), 
+    transparent);
+  transition: left 0.6s ease;
+}
+
+.liquid-button:hover::before {
+  left: 100%;
+}
+
+.liquid-button:hover {
+  transform: translateY(-2px) scale(1.01);
+  background: linear-gradient(135deg, 
+    rgba(74, 92, 106, 0.9) 0%, 
+    rgba(37, 55, 69, 0.8) 50%, 
+    rgba(74, 92, 106, 0.9) 100%);
+  box-shadow: 
+    0 6px 24px rgba(74, 92, 106, 0.4),
+    0 1px 0 rgba(204, 208, 207, 0.15) inset;
+}
+
+.liquid-button:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+/* Ocean Ambient Background */
+.ambient-bg {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(37, 55, 69, 0.3) 0%, transparent 70%),
+    radial-gradient(circle at 80% 20%, rgba(74, 92, 106, 0.2) 0%, transparent 70%),
+    radial-gradient(circle at 40% 40%, rgba(17, 33, 45, 0.4) 0%, transparent 70%);
+}
+
+/* Enhanced Scrollbar for Dark Theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(17, 33, 45, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 92, 106, 0.6);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 92, 106, 0.8);
+}
+
+/* Ocean Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "ss01" 1, "ss02" 1, "cv01" 1;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: rgb(204, 208, 207);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, 
+    rgb(204, 208, 207) 0%, 
+    rgb(155, 168, 171) 25%, 
+    rgb(74, 92, 106) 50%, 
+    rgb(204, 208, 207) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Ocean Focus States */
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  @apply outline-none;
+  box-shadow: 
+    0 0 0 2px rgba(74, 92, 106, 0.4),
+    0 0 0 4px rgba(74, 92, 106, 0.2),
+    0 4px 12px rgba(74, 92, 106, 0.3);
+}
+
+/* Selection Styling for Dark Theme */
+::selection {
+  background: rgba(74, 92, 106, 0.4);
+  color: rgb(204, 208, 207);
+}
+
+/* Ocean Depth System */
+.depth-1 {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.depth-2 {
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(204, 208, 207, 0.05) inset;
+}
+
+.depth-3 {
+  box-shadow: 
+    0 10px 15px rgba(0, 0, 0, 0.5),
+    0 4px 6px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(204, 208, 207, 0.08) inset;
+}
+
+.depth-4 {
+  box-shadow: 
+    0 20px 25px rgba(0, 0, 0, 0.6),
+    0 10px 10px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(204, 208, 207, 0.1) inset;
+}
+
+/* Ocean Glow System */
+.ambient-glow {
+  position: relative;
+}
+
+.ambient-glow::before {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  background: radial-gradient(circle, rgba(74, 92, 106, 0.15) 0%, transparent 80%);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.ambient-glow:hover::before {
+  opacity: 1;
+}
+
+/* Terminal Styling for Dark Theme */
+.terminal-glow {
+  box-shadow: 
+    0 0 20px rgba(74, 92, 106, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(204, 208, 207, 0.05);
+}
+
+/* Ocean Grid System */
+.premium-grid {
+  background-image: 
+    linear-gradient(rgba(74, 92, 106, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 92, 106, 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Floating Animation for Dark Theme */
+.floating {
+  animation: ocean-float 12s ease-in-out infinite;
+}
+
+@keyframes ocean-float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+  }
+  33% { 
+    transform: translateY(-4px) scale(1.005);
+  }
+  66% { 
+    transform: translateY(-6px) scale(1.01);
+  }
+}
+
+/* Magnetic Hover Effect */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magnetic:hover {
+  transform: scale(1.02) translateY(-1px);
+}
+
+/* Breathing Animation */
+@keyframes ocean-breathe {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.breathe {
+  animation: ocean-breathe 4s ease-in-out infinite;
+}
+
+/* Form Elements for Dark Theme */
+input, textarea, select {
+  background: rgba(17, 33, 45, 0.8);
+  border: 1px solid rgba(74, 92, 106, 0.5);
+  color: rgb(204, 208, 207);
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: rgba(74, 92, 106, 0.8);
+  background: rgba(37, 55, 69, 0.8);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgb(155, 168, 171);
+}
+
+/* Button Variants for Dark Theme */
+.btn-primary {
+  background: rgba(37, 55, 69, 0.9);
+  color: rgb(204, 208, 207);
+  border: 1px solid rgba(74, 92, 106, 0.5);
+}
+
+.btn-primary:hover {
+  background: rgba(74, 92, 106, 0.9);
+  border-color: rgba(74, 92, 106, 0.8);
+}
+
+.btn-primary:disabled {
+  background: rgba(17, 33, 45, 0.8);
+  color: rgb(155, 168, 171);
+  border-color: rgba(74, 92, 106, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: rgb(155, 168, 171);
+  border: 1px solid rgba(74, 92, 106, 0.4);
+}
+
+.btn-secondary:hover {
+  background: rgba(37, 55, 69, 0.5);
+  color: rgb(204, 208, 207);
+  border-color: rgba(74, 92, 106, 0.6);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .floating,
+  .breathe,
+  .gradient-text {
+    animation: none;
+  }
+  
+  .liquid-button,
+  .glass-card,
+  .magnetic {
+    transition: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .glass-card {
+    background: rgba(37, 55, 69, 1);
+    border-color: rgba(74, 92, 106, 1);
+  }
+  
+  .liquid-button {
+    background: rgba(37, 55, 69, 1);
+    border-color: rgba(74, 92, 106, 1);
+  }
+}
