@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="11828a00-378f-4a5d-89e0-5322cd75a58c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1752713011066</updated>
       <workItem from="1752713013047" duration="3387000" />
-      <workItem from="1752717182695" duration="3953000" />
+      <workItem from="1752717182695" duration="4297000" />
     </task>
     <servers />
   </component>
