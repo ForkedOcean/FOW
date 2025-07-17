@@ -96,7 +96,7 @@ export default function Footer() {
               <motion.p 
                 className="text-2xl lg:text-3xl text-ocean-text-primary font-light leading-relaxed"
               >
-                You don't visit ForkedOcean.
+                You don&#39;t visit ForkedOcean.
               </motion.p>
               <motion.p 
                 className="text-2xl lg:text-3xl text-ocean-text-primary font-light leading-relaxed"

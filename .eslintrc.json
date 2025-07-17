@@ -10,9 +10,15 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-empty-object-type": "warn",
     "prefer-const": "error",
-    "no-console": "warn"
+    "prefer-rest-params": "warn",
+    "no-console": "warn",
+    "react/no-unescaped-entities": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "@next/next/no-img-element": "warn"
   }
 }

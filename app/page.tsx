@@ -10,14 +10,14 @@ export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date())
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const { scrollYProgress } = useScroll()
-  
+
   // Enhanced parallax effects
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -100])
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -200])
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -50])
+  const combinedY2 = useTransform(scrollYProgress, [0, 1], [0, -200])
+  const combinedY3 = useTransform(scrollYProgress, [0, 1], [0, -50])
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 0.9, 0.7, 0.5])
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
-  
+
   // Smooth spring animations
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 }
   const x = useSpring(0, springConfig)
@@ -50,37 +50,40 @@ export default function Home() {
     <div className="min-h-screen relative overflow-hidden premium-grid bg-ocean-primary">
       {/* Enhanced ambient background layers */}
       <div className="fixed inset-0 ambient-bg" />
-      
-      {/* Dynamic floating ambient elements */}
-      <motion.div 
-        style={{ 
-          y: y1, 
-          opacity,
-          x: mousePosition.x * 5,
-          scale
-        }}
-        className="fixed top-20 left-10 w-80 h-80 bg-gradient-to-br from-ocean-accent/20 to-ocean-card/30 rounded-full blur-3xl floating"
-      />
+
+        {/* Dynamic floating ambient elements */}
         <motion.div
             style={{
+                y: y1,
+                opacity,
+                x: mousePosition.x * 5,
+                scale
+            }}
+            className="fixed top-20 left-10 w-80 h-80 bg-gradient-to-br from-ocean-accent/20 to-ocean-card/30 rounded-full blur-3xl floating"
+        />
+
+        <motion.div
+            style={{
+                y: combinedY2,
                 opacity,
                 x: mousePosition.x * -8,
-                y: mousePosition.y * 5
             }}
             className="fixed bottom-20 right-10 w-72 h-72 bg-gradient-to-br from-ocean-secondary/40 to-ocean-accent/20 rounded-full blur-3xl floating"
         />
 
+        {/* Third element - scroll + mouse parallax */}
         <motion.div
             style={{
+                y: combinedY3,
                 opacity,
                 x: mousePosition.x * 4,
-                y: mousePosition.y * -3
             }}
             className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-ocean-card/30 to-ocean-accent/20 rounded-full blur-3xl floating"
         />
 
-      {/* Enhanced time indicator */}
-      <motion.div 
+
+        {/* Enhanced time indicator */}
+      <motion.div
         initial={{ opacity: 0, y: -20, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
@@ -102,7 +105,7 @@ export default function Home() {
         className="fixed top-6 left-6 z-50 glass-card px-4 py-2 rounded-xl"
       >
         <div className="flex items-center gap-2">
-          <img src="/Logo_svg.svg" alt="ForkedOcean" className="w-4 h-4" />
+          <img src="/favicon.ico" alt="ForkedOcean" className="w-4 h-4" />
           <span className="text-ocean-text-muted font-mono text-xs">ForkedOcean</span>
         </div>
       </motion.div>

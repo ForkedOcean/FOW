@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { sanitizeInput } from '@/lib/utils'
-import { siteConfig } from '@/lib/config'
 
 interface Command {
   input: string

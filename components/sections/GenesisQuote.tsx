@@ -64,7 +64,7 @@ export default function GenesisQuote() {
               className="absolute inset-0 flex flex-col justify-center items-center space-y-6"
             >
               <blockquote className="text-xl md:text-2xl font-light text-slate-200 italic leading-relaxed max-w-3xl">
-                "{genesisQuotes[currentQuote].text}"
+                &#34;{genesisQuotes[currentQuote].text}&#34;
               </blockquote>
               <cite className="text-blue-400 font-mono text-sm">
                 — {genesisQuotes[currentQuote].source}

@@ -65,7 +65,7 @@ export default function CTA() {
             <div className="p-6 space-y-3 font-mono text-sm">
               <div className="text-ocean-accent">
                 <p>Welcome to ForkedOcean Mental Operating System</p>
-                <p>Type 'help' for available commands</p>
+                <p>Type &#39;help&#39; for available commands</p>
               </div>
 
               <div className="flex items-center gap-1">

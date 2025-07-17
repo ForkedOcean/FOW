@@ -1,44 +1,51 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import { motion } from 'framer-motion'
-import { Terminal } from 'lucide-react'
 
 export default function TerminalEntry() {
-  const [currentCommand, setCurrentCommand] = useState('')
-  const [isTyping, setIsTyping] = useState(true)
-  
-  const commands = [
+  const [, setCurrentCommand] = useState('')
+  const [, setIsTyping] = useState(true)
+
+  const commands = useMemo(() => [
     '> breathe',
     '> echo consciousness',
-    '> navigate inward', 
+    '> navigate inward',
     '> reflect --depth=infinite',
     '> wave --generate'
-  ]
+  ], []) // Empty dependency array since it never changes
 
   useEffect(() => {
     let commandIndex = 0
     let charIndex = 0
-    
+    let timeoutId: NodeJS.Timeout
+
     const typeCommand = () => {
       if (charIndex < commands[commandIndex].length) {
         setCurrentCommand(commands[commandIndex].slice(0, charIndex + 1))
         charIndex++
-        setTimeout(typeCommand, 100)
+        timeoutId = setTimeout(typeCommand, 100)
       } else {
         setIsTyping(false)
-        setTimeout(() => {
+        timeoutId = setTimeout(() => {
           setIsTyping(true)
           charIndex = 0
           commandIndex = (commandIndex + 1) % commands.length
           setCurrentCommand('')
-          setTimeout(typeCommand, 500)
+          timeoutId = setTimeout(typeCommand, 500)
         }, 3000)
       }
     }
 
     typeCommand()
-  }, [])
+
+    // Cleanup function to clear timeouts
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [commands])
 
   return (
     <section className="py-24">
@@ -54,7 +61,7 @@ export default function TerminalEntry() {
             Conscious Interface
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            This is not a UI. It's a threshold to cognition.
+            This is not a UI. It&#39;s a threshold to cognition.
           </p>
         </motion.div>
 

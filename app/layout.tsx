@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { siteConfig } from '@/lib/config'
+import React from "react";
 
 const inter = Inter({ 
   subsets: ['latin'],

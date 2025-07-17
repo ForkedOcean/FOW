@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Waves, Sparkles } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
 
 export default function Hero() {
   const { scrollYProgress } = useScroll()
@@ -89,7 +89,7 @@ export default function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
               >
-                "The sea forks when thought begins."
+                &#34;The sea forks when thought begins.&#34;
               </motion.blockquote>
               
               <motion.cite 
@@ -127,11 +127,11 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 2.2, duration: 1 }}
           >
-            Not just a project — it's a thinking framework.
+            Not just a project — it&#39;s a thinking framework.
           </motion.p>
         </motion.div>
 
-        {/* Call to Action Buttons */}
+        {/* Call-to-Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
