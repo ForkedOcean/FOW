@@ -105,7 +105,7 @@ export default function Home() {
         className="fixed top-6 left-6 z-50 glass-card px-4 py-2 rounded-xl"
       >
         <div className="flex items-center gap-2">
-          <img src="/favicon.ico" alt="ForkedOcean" className="w-4 h-4" />
+          <img src="/Logo_svg.svg" alt="ForkedOcean" className="w-4 h-4" />
           <span className="text-ocean-text-muted font-mono text-xs">ForkedOcean</span>
         </div>
       </motion.div>
