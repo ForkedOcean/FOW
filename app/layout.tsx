@@ -70,25 +70,27 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth dark">
-      <head>
-        <title>ForkedOcean</title>
-        <meta name="description" content="Your Ocean. Your Control." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#06141B" />
-        <link rel="icon" href="/favicon.ico" sizes="any"/>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png"/>
-        <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"/>
-        <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-ocean-primary text-ocean-text-primary`}>
+    <head>
+      <title>ForkedOcean</title>
+      <meta name="description" content="Your Ocean. Your Control."/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <meta name="theme-color" content="#06141B"/>
+      <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon"/>
+      <link rel="icon" href="/favicon.ico?v=2" sizes="any"/>
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+      <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+      <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png"/>
+      <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png"/>
+      <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials"/>
+      <meta name="mobile-web-app-capable" content="yes"/>
+      <meta name="apple-mobile-web-app-capable" content="yes"/>
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    </head>
+    <body
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-ocean-primary text-ocean-text-primary`}>
         {children}
       </body>
     </html>
