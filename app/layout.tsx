@@ -84,8 +84,8 @@ export default function RootLayout({
         <meta name="description" content="Your Ocean. Your Control."/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="theme-color" content="#06141B"/>
-        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon"/>
-        <link rel="icon" href="/favicon.ico?v=2" sizes="any"/>
+        <link rel="icon" href="/favicon.ico?v=3" type="image/x-icon"/>
+        <link rel="icon" href="/favicon.ico?v=3" sizes="any"/>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
