@@ -86,7 +86,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#06141B"/>
         <link rel="icon" href="/favicon.ico?v=3" type="image/x-icon"/>
         <link rel="icon" href="/favicon.ico?v=3" sizes="any"/>
-        {/*<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>*/}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
